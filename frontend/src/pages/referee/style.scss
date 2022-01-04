@@ -1,0 +1,79 @@
+.referee-title {
+  max-width: 400px;
+}
+.referee-table {
+  max-width: 400px;
+}
+.referee-header {
+  font-family: "Druk-Bold";
+  font-size: 32px;
+}
+.referee-form {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.myinput[type="checkbox"] {
+  position: relative;
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px solid #808080;
+  border-radius: 25%;
+  content: "";
+  background: transparent;
+}
+
+.myinput[type="checkbox"]:after {
+  position: relative;
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  left: -1px;
+  top: -1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #808080;
+  border-radius: 25%;
+  content: "";
+  background-image: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.myinput[type="checkbox"]:checked:after {
+  border-radius: 25%;
+  border: 1px solid #808080;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAQAAABuW59YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAB2SURBVHjaAGkAlv8A3QDyAP0A/QD+Dam3W+kCAAD8APYAAgTVZaZCGwwA5wr0AvcA+Dh+7UX/x24AqK3Wg/8nt6w4/5q71wAAVP9g/7rTXf9n/+9N+AAAtpJa/zf/S//DhP8H/wAA4gzWj2P4lsf0JP0A/wADAHB0Ngka6UmKAAAAAElFTkSuQmCC'), linear-gradient(135deg, #B1B6BE 0%, #FFF 100%);
+}
+
+::-webkit-input-placeholder {
+  text-align: left;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: left;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: left;  
+}
+
+:-ms-input-placeholder {  
+  text-align: left; 
+}
+
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

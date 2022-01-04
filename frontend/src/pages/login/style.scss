@@ -1,0 +1,27 @@
+.login-title {
+  max-width: 600px;
+}
+
+.login-table {
+  max-width: 450px;
+}
+
+.login-header {
+  max-width: 580px;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;  
+}
+
+:-ms-input-placeholder {  
+  text-align: center; 
+}

@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  db:
+    container_name: nails_db_1
+    build: ./.docker/postgres
+    environment:
+      POSTGRES_DB: rainbow_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdta:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  cache:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./.docker/redis:/redis.conf
+    command: [ "redis-server", "/redis.conf" ]
+volumes:
+  pgdta:
+    driver: local
