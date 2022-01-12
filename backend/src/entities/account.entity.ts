@@ -36,6 +36,12 @@ export class Account {
   public code: string;
   
   @Column()
+  public codeNumberLimit: number;
+
+  @Column()
+  public codeNumberWarning: number;
+
+  @Column()
   public position: string;
   
   @Column({ default: 0 })
