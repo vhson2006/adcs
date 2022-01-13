@@ -6,7 +6,7 @@ import { Redeem } from 'src/entities/redeem.entity';
 import { CryptoService } from 'src/crypto/crypto.service';
 import { SmsService } from 'src/sms/sms.service';
 import { LIMIT_STATUS, PROCESS_STATUS } from '../account/account.constant';
-import { CORRECT, INCORRECT } from 'src/config/app.constant';
+import { ACTIVED_REDEEM, CORRECT, INCORRECT, UNUSED_REDEEM } from 'src/config/app.constant';
 import { tranformRedeems } from './redeem.transformer';
 
 @Injectable()
@@ -66,7 +66,7 @@ export class RedeemService {
       where: {
         accountId: id,
         redeemCode: redeemCode,
-        status: 0
+        status: UNUSED_REDEEM
       }
     });
     if (redeemData === undefined) {
@@ -76,7 +76,7 @@ export class RedeemService {
     await this.accountRepository.update(id, {
       activedQuantity: account.activedQuantity + 1,
     });
-    await this.redeemRepository.update(redeemData.id, { status: 1 });
+    await this.redeemRepository.update(redeemData.id, { status: ACTIVED_REDEEM });
     this.smsService.send({
       message: 'Thank you for redeeming your free coffee, let us know how you liked it here: http://bitly.com....',
       phone: redeemData.toPhone
@@ -169,9 +169,9 @@ export class RedeemService {
     if (redeem === undefined) {
       return INCORRECT;
     }
-    await this.redeemRepository.delete(redeemId);
+    await this.redeemRepository.softDelete(redeemId);
     await this.accountRepository.update(userId, {
-      activedQuantity: account.activedQuantity - 1,
+      activedQuantity: account.activedQuantity - (redeem.status === ACTIVED_REDEEM ? 1 : 0),
       invitedQuantity: account.invitedQuantity - 1,
     });
     
