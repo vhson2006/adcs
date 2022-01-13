@@ -77,21 +77,21 @@ export class RedeemService {
       activedQuantity: account.activedQuantity + 1,
     });
     await this.redeemRepository.update(redeemData.id, { status: ACTIVED_REDEEM });
-    this.smsService.send({
+    await this.smsService.send({
       message: 'Thank you for redeeming your free coffee, let us know how you liked it here: http://bitly.com....',
       phone: redeemData.toPhone
     });
 
-    if (account.activedQuantity >= account.codeNumberWarning 
-      && account.activedQuantity < account.codeNumberLimit) {
-      this.smsService.send({
+    if ((account.activedQuantity + 1) == account.codeNumberWarning 
+      && (account.activedQuantity + 1) < account.codeNumberLimit) {
+        await this.smsService.send({
         message: 'The campaign code is claimed %s times'.replace('%s', account.codeNumberWarning.toString()),
         phone: account.phone
       });
     }
-    if (account.activedQuantity >= account.codeNumberLimit) {
-      this.smsService.send({
-        message: 'The campaign code reach out %s times (maximun)'.replace('%s', account.codeNumberLimit.toString()),
+    if ((account.activedQuantity + 1) >= account.codeNumberLimit) {
+      await this.smsService.send({
+        message: 'The campaign code reached out %s times (maximum)'.replace('%s', account.codeNumberLimit.toString()),
         phone: account.phone
       });
     }
