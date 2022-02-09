@@ -28,7 +28,7 @@ export class CryptoService {
     result += characters.charAt(current.getSeconds());
     result += characters.charAt(Math.trunc(current.getMilliseconds() / charactersLength));
     result += characters.charAt(current.getMilliseconds() % charactersLength);
-    for ( let i = 0; i < 2; i++ ) {
+    for ( let i = 0; i < 32; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     

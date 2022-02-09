@@ -75,8 +75,8 @@ export const reportPage = {
   inviteTimeHeader: 'Invite Time',
   activeTimeHeader: 'Active Time',
   actionsHeader: 'Action',
-  activeStatus: 'Active',
-  waitingStatus: 'Waiting',
+  activeStatus: 'Redeemed',
+  waitingStatus: 'Waiting to be redeemed',
   editRedeemTitle: 'Edit Redeem',
 }
 export const handedOutPage = {

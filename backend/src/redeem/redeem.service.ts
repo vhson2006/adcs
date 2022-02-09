@@ -40,8 +40,8 @@ export class RedeemService {
       redeemCode: redeemCode
     });
 
-    let template = 'You have just received a FREE COFFEE from %s %s. You can redeem this at: %s, %s. Present this code to the barista to claim %s';
-    this.smsService.send({
+    let template = 'You have just received a FREE BREW with The Alternative Almond Milk from %s %s. You can redeem this at: %s, %s. Present this code to the barista to claim %s';
+    await this.smsService.send({
       message: template
         .replace('%s', redeemData.fromFirstName)
         .replace('%s', redeemData.fromLastName)
@@ -78,7 +78,7 @@ export class RedeemService {
     });
     await this.redeemRepository.update(redeemData.id, { status: ACTIVED_REDEEM });
     await this.smsService.send({
-      message: 'Thank you for redeeming your free coffee, let us know how you liked it here: http://bitly.com....',
+      message: 'Thank you for redeeming your free brew, let us know how you liked it here: http://bitly.com....',
       phone: redeemData.toPhone
     });
 

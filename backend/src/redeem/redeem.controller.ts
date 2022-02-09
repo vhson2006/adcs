@@ -29,35 +29,35 @@ export class RedeemController {
     }
   }
 
-  @Patch(':id')
-  async updateRedeem(@Request() req, @Param('id') id: string, @Body() updateRedeemDto: UpdateRedeemDto) {
-    const response = await this.redeemService.updateRedeem(req.user.id, id, updateRedeemDto);
-    if (response === INCORRECT) {
-      return {
-        status: INCORRECT,
-        message: "Can't update redeem"
-      }
-    }
-    return {
-      status: CORRECT,
-      data: [],
-    }
-  }
+  // @Patch(':id')
+  // async updateRedeem(@Request() req, @Param('id') id: string, @Body() updateRedeemDto: UpdateRedeemDto) {
+  //   const response = await this.redeemService.updateRedeem(req.user.id, id, updateRedeemDto);
+  //   if (response === INCORRECT) {
+  //     return {
+  //       status: INCORRECT,
+  //       message: "Can't update redeem"
+  //     }
+  //   }
+  //   return {
+  //     status: CORRECT,
+  //     data: [],
+  //   }
+  // }
 
-  @Delete(':id')
-  async deleteRedeem(@Request() req, @Param('id') id: string) {
-    const response = await this.redeemService.deleteRedeem(req.user.id, id);
-    if (response === INCORRECT) {
-      return {
-        status: INCORRECT,
-        message: "Can't delete redeem"
-      }
-    }
-    return {
-      status: CORRECT,
-      data: [],
-    }
-  }
+  // @Delete(':id')
+  // async deleteRedeem(@Request() req, @Param('id') id: string) {
+  //   const response = await this.redeemService.deleteRedeem(req.user.id, id);
+  //   if (response === INCORRECT) {
+  //     return {
+  //       status: INCORRECT,
+  //       message: "Can't delete redeem"
+  //     }
+  //   }
+  //   return {
+  //     status: CORRECT,
+  //     data: [],
+  //   }
+  // }
 
   @Public()
   @Post('invite')

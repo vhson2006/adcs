@@ -45,7 +45,7 @@ const RedeemsComponent = (props: any) => {
           <th><FormattedMessage id="redeemCodeHeader"/></th>
           <th><FormattedMessage id="statusHeader"/></th>
           <th><FormattedMessage id="inviteTimeHeader"/></th>
-          <th><FormattedMessage id="actionsHeader"/></th>
+          {/* <th><FormattedMessage id="actionsHeader"/></th> */}
         </tr>
       </thead>
       <tbody>
@@ -69,10 +69,10 @@ const RedeemsComponent = (props: any) => {
                     weekday="long"/>&nbsp;-&nbsp;
                   <FormattedTime value={redeem.created} />
                 </td>
-                <td>
+                {/* <td>
                   <BsPencilSquare onClick={() => editRedeemHandler(redeem)}/>
                   <BsFillTrashFill onClick={() => deleteRedeemHandler(redeem.id)}/>
-                </td>
+                </td> */}
               </tr>
           ))
         }
